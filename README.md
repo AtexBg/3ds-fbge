@@ -5,7 +5,7 @@
 ## What is it?
 The *3ds-fbge* project is meant to be a standalone graphical user interface (or GUI) to be used on the port of Linux for the 3DS, it works entierely using embed C code and the raw framebuffer of the device, no X server or graphical library needed.
 I mostly worked on the codebase part while [xippo](https://github.com/AtexBg/3ds-fbge?tab=readme-ov-file#credits) worked on the graphics and the ideas.
-> NOTE: This is the first release of the graphical environnement, it's just the beggining of the developpement, it's gonna be better with later releases.
+> NOTE: This is the first release of the graphical environnement, it's just the beggining of the developpement and a mess for now, it's gonna be better with later releases.
 -------------------------------------------------
 
 ## What it can do?
@@ -43,7 +43,7 @@ I implemented 4 ways of drawing graphics:
 They're all stored in *[graphics.h](https://github.com/AtexBg/3ds-fbge/blob/main/headers/graphics.h)* as arrays of color to be used on the color palette, normal PNGs/JPEGs are converted to thoses arrays using [img2array.py](https://github.com/AtexBg/3ds-fbge/blob/main/dev/img2array.py)
 
 ## USAGE:
-Download the [binary file](https://github.com/AtexBg/3ds-fbge/releases/download/wm-v4) and run in within Linux3DS, for that you will first need to install the OS from the [linux_3ds-fbge_install.zip](https://github.com/AtexBg/3ds-fbge/blob/main/linux_3ds-fbge_install.zip) and extract it to your SD card's root, otherwise you can use [this new release](https://gbatemp.net/threads/release-linux-for-the-3ds.407187/page-35#post-8522677).
+Download the [binary file](https://github.com/AtexBg/3ds-fbge/releases/download/wm-v4) and run in within Linux3DS, for that you will first need to install the OS from the **linux_3ds-fbge_install.zip** from the release tab and extract it to your SD card's root, otherwise you can use [this new release](https://gbatemp.net/threads/release-linux-for-the-3ds.407187/page-35#post-8522677).
 ### COMPILING:
 To compile this you need : 
 - A computer running Linux (or WSL on Windows)
