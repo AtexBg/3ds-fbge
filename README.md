@@ -43,7 +43,7 @@ I implemented 4 ways of drawing graphics:
 They're all stored in *[graphics.h](https://github.com/AtexBg/3ds-fbge/blob/main/headers/graphics.h)* as arrays of color to be used on the color palette, normal PNGs/JPEGs are converted to thoses arrays using [img2array.py](https://github.com/AtexBg/3ds-fbge/blob/main/dev/img2array.py)
 
 ## USAGE:
-Download the [binary file](https://github.com/AtexBg/3ds-fbge/releases/download/wm-v4) and run in within Linux3DS, for that you will first need to install the OS from the **linux_3ds-fbge_install.zip** from the release tab and extract it to your SD card's root, otherwise you can use [this new release](https://gbatemp.net/threads/release-linux-for-the-3ds.407187/page-35#post-8522677).
+Download the [binary file](https://github.com/AtexBg/3ds-fbge/releases/download/v0.1.0/wm-v4) and run in within Linux3DS, for that you will first need to install the OS from the [linux_3ds-fbge_install.zip](https://github.com/AtexBg/3ds-fbge/releases/download/v0.1.0/linux_3ds-fbge_install.zip) from the release tab and extract it to your SD card's root, otherwise you can use [this new release](https://gbatemp.net/threads/release-linux-for-the-3ds.407187/page-35#post-8522677).
 ### COMPILING:
 To compile this you need : 
 - A computer running Linux (or WSL on Windows)
