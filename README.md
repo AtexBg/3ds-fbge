@@ -8,8 +8,10 @@ I mostly worked on the codebase part while [xippo](https://github.com/AtexBg/3ds
 > NOTE: This is the first release of the graphical environnement, it's just the beggining of the developpement and a mess for now, it's gonna be better with later releases.
 -------------------------------------------------
 
+![The DE looking Great :3](picture1.jpg)
+
 ## What it can do?
-For now basically nothing, it's more a proof-of-concept, it just displays a background image with an uanimated window and a cursor that can be moved with the circle pad, but it's still in *active developpement*.
+For now basically nothing, it's more a proof-of-concept, it just displays a background image with a movable window, a taskbar, and a cursor that can be moved with the circle pad, but it's still in *active developpement*.
 
 -------------------------------------------------
 
@@ -33,17 +35,20 @@ and will fetch 3-bit packets and convert them into directions to calculate the `
 
 ### GRAPHICS:
 
-I implemented 4 ways of drawing graphics:
+I implemented 3 ways of drawing graphics:
 ----------------------------
-- By using the `draw_rect(buffer,stride,bpp,X,Y,W,H,R,G,B,width,height);` function call (draws a rectangle with a flat color)
-- By using the `drawImg(buffer,stride,bpp,X,Y,W,H,R,G,B,width,height);` function call (draws an arrayed image from *graphics.h*)
-- By using the `drawCursor(buffer,stride,bpp,cursor_x,cursor_y,width,height);` function call (draws the cursor at the right position)
-- And 1 other i didn't added there yet
+- By using the `draw_rect(buffer,stride,bpp,X,Y,W,H,R,G,B,width,height);` function call (draws a simple rectangle with a flat color)
+- By using the `memcpy(buffer, background, BG_W * BG_H * 3);` function call (draws an arrayed image, only works with 400x240 images (background))
+- By using the `drawSprite(buffer,stride,bpp, X, Y, width, height, *_W, *_H, INDEX);` function call (draws any sprite from *graphics.h* at given coordinates)
 -----------------------------
 They're all stored in *[graphics.h](https://github.com/AtexBg/3ds-fbge/blob/main/headers/graphics.h)* as arrays of color to be used on the color palette, normal PNGs/JPEGs are converted to thoses arrays using [img2array.py](https://github.com/AtexBg/3ds-fbge/blob/main/dev/img2array.py)
 
+-----------------------------
+
 ## USAGE:
-Download the [binary file](https://github.com/AtexBg/3ds-fbge/releases/download/v0.1.0/wm-v4) and run in within Linux3DS, for that you will first need to install the OS from the [linux_3ds-fbge_install.zip](https://github.com/AtexBg/3ds-fbge/releases/download/v0.1.0/linux_3ds-fbge_install.zip) from the release tab and extract it to your SD card's root, otherwise you can use [this new release](https://gbatemp.net/threads/release-linux-for-the-3ds.407187/page-35#post-8522677).
+Download the [binary file](https://github.com/AtexBg/3ds-fbge/releases/download/v0.2.0/wm-v4) and run in within Linux3DS, for that you will first need to install the OS from the [linux_3ds-fbge_install.zip](https://github.com/AtexBg/3ds-fbge/releases/download/v0.1.0/linux_3ds-fbge_install.zip) from the release tab and extract it to your SD card's root, otherwise you can use [this new release](https://gbatemp.net/threads/release-linux-for-the-3ds.407187/page-35#post-8522677).
+The CirclePad acts as a mouse and the L trigger as the main mouse click, may change later.
+
 ### COMPILING:
 To compile this you need : 
 - A computer running Linux (or WSL on Windows)
@@ -56,44 +61,50 @@ Then just execute the `./compile.sh` script and it will compile the binary in "*
 ## FILE STRUCTURE:
 
 ```shell
--3ds-fbge/              # Main Directory
+-3ds-fbge/             # Main Directory
  |-dev/                # Contains the PNGs textures and dev scripts (unused in binary)
  |  |-img2array.py     # Script to convert images into data arrays
- |  |-graphics/        # Dir containing the PNG images
+ |  |-BackupMainC.bat  # Script to backup main.c file while coding
+ |  |-gfx/             # Dir containing the PNG images
  |    |-cursor.png        
  |    |-taskbar.png
- |    |-icon1.png
+ |    |-window1.png
  |    |-ect...
  |-build/              # Output dir for binary, see $(OUTPUT_DIR) on *compile.sh*
  |  |-wm-v4            # Output file, ready to execute, see $(OUTPUT) on *compile.sh*
  |-headers/            # Dir containing file headers
- |  |-graphics.H        # Contain all graphics arrays
- |  |-coordinates.h       # Contain UI coordinates and other vars
- |  |-screenshot.h        # Data header for the screenshot function (not imp yet)
+ |  |-graphics.h        # Contain all graphics arrays
+ |  |-screenshot.h      # Data header for the screenshot function (not imp yet)
  |-main.c               # Main code file, contain logic
  |-compile.sh          # Script to compile the DE       
- |-wallpaper.bin       # Wallpaper binary image (see #image conversion)
  |-README.md           # This file. Simpely.
 ```
 
+![Close view at the Window](macro.jpg)
 ## Why?
 why not?
 
-## BINARY IMAGES:
-The framebuffer of the 3DS uses a 288KB (**"width \* height \* bpp"** or "400 \* 240 \* 3") framebuffer in a RGB24 format, to convert your own image to this format you can use my implementation on [this script](https://github.com/AtexBg/3ds-linux-video-player/blob/main/3%20-%20Convert%20to%20binary%20format.py) from another project or from this [online converter](https://xem.github.io/3DShomebrew/tools/image-to-bin.html).
-
 ## TODO:
-- Make wallpaper setting work properly
 - Make screenshots function work (and make a converter on PC)
 - add item selection and detection 
 - fill imported headers
-- fix issue where the coordinates are rotated (mybe rotate the images instead?)
-- Make mouse click detection with L/R triggers works properly
+- Upgrade input handler for every button
 - Add more graphical content
-- Properly define separate drawing layers
 - Add proper keyboard handler
 - Add option to go back to Linux shell
-- Fix OOM error by deallocating back-buffers
+- Implement start menu
+- Fix innacurates coordinates while moving windows
+
+
+## FIXED SINCE LAST RELEASE:
+- OOM Errors by buffer overflow
+- Rotated coordinates
+- Added screenshots in Github repo
+- Made the code cleaner
+- Added more graphics
+- Added windows moving
+- Added mouse click detection
+- And other things i don't remember...
 
 ## Credits
 --------------------------
@@ -108,4 +119,4 @@ The framebuffer of the 3DS uses a 288KB (**"width \* height \* bpp"** or "400 \*
  - [**Reddit**](https://reddit.com/u/Willing-Stomach3649)
  - **Discord** : xippo1621
 >-----------------------------------------------
-Also feel free to contact me if you want to collabore for the project :3
+Also feel free to contact us if you want to collabore for the project :3
