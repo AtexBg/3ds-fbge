@@ -5,7 +5,6 @@
 ## What is it?
 The *3ds-fbge* project is meant to be a standalone graphical user interface (or GUI) to be used on the port of Linux for the 3DS, it works entierely using embed C code and the raw framebuffer of the device, no X server or graphical library needed.
 I mostly worked on the codebase part while [xippo](https://github.com/AtexBg/3ds-fbge?tab=readme-ov-file#credits) worked on the graphics and the ideas.
-> NOTE: This is the first release of the graphical environnement, it's just the beggining of the developpement and a mess for now, it's gonna be better with later releases.
 -------------------------------------------------
 
 ![The DE looking Great :3](picture1.jpg)
@@ -106,13 +105,15 @@ why not?
 - Added mouse click detection
 - And other things i don't remember...
 
+![Debug menu enabled](debug.jpg)
+
 ## Credits
 --------------------------
 ### AtexBg
  - [**Github**](https://github.com/AtexBg)
  - [**Reddit**](https://reddit.com/u/AtexBg)
  - [**YouTube**](https://youtube.com/@AtexBg)
- - [**Discord**](https://discord.gg/YfrV2hGg) : atexbg
+ - [**Discord**](https://discord.gg/U3Ktz39w) : atexbg
 >----------------------------------------------
 ### xippo
  - [**Github**](https://github.com/xippopo)
