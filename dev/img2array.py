@@ -23,10 +23,14 @@ def format_array(array, width, height):
         lines.append(line)
     lines.append("};")
     return "\n".join(lines)
-
-if __name__ == "__main__":
+    
+def main():
     file = input("enter file name:")
     arr, w, h = img2bgrarray(f"gfx/{file}.png") #opens file in "gfx" folder
     formatted = format_array(arr, w, h) #format array
     pyperclip.copy(formatted)  # copy array into clipboard
-    input("Array copied in clipboard, press enter to quit...")
+    print("Array copied in clipboard, press enter to quit...")
+
+if __name__ == "__main__":
+    while True:
+        main()
