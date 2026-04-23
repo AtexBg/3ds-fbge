@@ -17,7 +17,7 @@ I added a few shortcuts that we can use while the DE is running, here's a few of
 - R + START: Open settings
 - START + X: Take screenshot (saved as .bmp, disabled for this version because it's broken)
 - START + A : Quit 3DS-FBGE
-- A+B+L+R: Syns the filesystem and poweroff the console
+- A+B+L+R: Syncs the filesystem and poweroff the console
 
 -------------------------------------------------
 
@@ -28,6 +28,7 @@ Very simple, just download the [binary file](https://github.com/AtexBg/3ds-fbge/
 
 ## SD CARD:
 Card should be at least 2GB and formatted in FAT32, any cluster size is fine but 32Ko works the best.
+
 /!\\ Also you should use an SD card with nothing important on it because the kernel SD/MMC driver is unstable and can corrupt the filesystem, also cards which are 32GB or more will crash the kernel I/O handler
 
 
@@ -44,6 +45,7 @@ Then just execute the `make` command and it will compile the binary in "*./build
 
 ## Why?
 why not? it's just a fun project :3
+
 Btw a little fun fact : the bottom screen doesn't have a framebuffer, so it instead uses raw `/dev/mem` at memory address **0x18119400** lol
 
 # Pictures:
@@ -51,7 +53,7 @@ Btw a little fun fact : the bottom screen doesn't have a framebuffer, so it inst
 ![Testing the terminal](pictures/terminal.bmp)
 ![Tested on a REAL console](pictures/on_hardware.jpg)
 ![Bottom screen](pictures/bottom.bmp)
-![Top screen with terminal][pictures/top_with_terminal.bmp]
+![Top screen with terminal](pictures/top_with_terminal.bmp)
 
 ## TODO:
 - Test the code on Old3DS
