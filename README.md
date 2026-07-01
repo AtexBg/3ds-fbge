@@ -32,7 +32,7 @@ Card should be at least 2GB and formatted in FAT32, any cluster size is fine but
 /!\\ Also you should use an SD card with nothing important on it because the kernel SD/MMC driver is unstable and can corrupt the filesystem, also cards which are 32GB or more will crash the kernel I/O handler
 
 
-#### Binary tested on New3DS only, but should work on Old models too (??)
+#### I only have a New3DS for testing, but thanks to @tallHouse64 we can now confirm that it works on Old3DS models too !
 -----------------------------------
 ### COMPILING:
 To compile this code, you need : 
