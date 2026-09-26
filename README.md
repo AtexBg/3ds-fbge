@@ -1,6 +1,8 @@
 # -- The *3ds-fbge* project : --
 ## (aka 3ds-FrameBufferGraphicalEnvironnement)
 
+###### edit 26/09/26: tf i meant "work in progress", this project sucks it can’t do anything lmao
+
 -------------------------------------------------
 ## What is it?
 ### The *3ds-fbge* project is meant to be a standalone graphical user interface (or GUI) to be used on the port of Linux for the 3DS as some kind of desktop environnemennt, it works entierely using native C code, the Linux API, and the raw framebuffer(s) of the device, no X server or conventional graphical library needed.
